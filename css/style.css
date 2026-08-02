@@ -1,0 +1,328 @@
+:root {
+    /* Color Palette: Institutional, refined, high-contrast */
+    --bg-color: #FAFAFA;
+    --surface-color: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-tertiary: #888888;
+    --institutional-navy: #0A1F44;
+    --border-color: #E0E0E0;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Spacing & Layout */
+    --container-width: 1000px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--institutional-navy);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-primary);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Typography specifics */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.kicker {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Header */
+.site-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.site-nav a {
+    font-size: 0.875rem;
+    margin-left: var(--spacing-md);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.site-nav a:hover {
+    color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* Core Competencies Grid */
+.expertise {
+    padding-bottom: var(--spacing-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.expertise-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.expertise-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Research / Publications - HBR Style */
+.research {
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.research-article {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.75rem;
+}
+
+.category {
+    color: var(--institutional-navy);
+    font-weight: 600;
+}
+
+.article-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.article-excerpt {
+    color: var(--text-secondary);
+    max-width: 800px;
+}
+
+/* Experience Timeline */
+.experience {
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+}
+
+.timeline {
+    border-left: 1px solid var(--border-color);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+/* The timeline dot */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4.5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+}
+
+.company {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timeframe {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.role {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--institutional-navy);
+    color: #FFFFFF;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-info h2 {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+}
+
+.footer-info p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.875rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-links a {
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-links a:hover {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-bottom {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Minimal Reveal Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .site-nav a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .footer-inner {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
