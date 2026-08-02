@@ -3,140 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S M Zawadul Huq | Corporate Strategy & Investment Research</title>
-    <meta name="description" content="Zawadul Huq: Driving digital transformation and capital allocation in the TMT sector.">
+    <title>Zawadul Huq | Corporate Strategy & Investment Research</title>
+    <meta name="description" content="Zawadul Huq: Corporate Strategy, Financial Modeling, and TMT Industry Insights.">
     
-    <!-- Premium Typography: Playfair Display (Editorial) & Inter (Data/UI) -->
+    <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* --- VISUAL IDENTITY SYSTEM --- */
+        :root {
+            --bg-paper: #FAFAFA;
+            --bg-surface: #FFFFFF;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-meta: #888888;
+            --brand-navy: #0A1F44;
+            --border-light: #E5E5E5;
+            --border-dark: #111111;
+            
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            
+            --max-width: 1100px;
+            --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            background-color: var(--bg-paper);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+        
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
+        a { color: var(--brand-navy); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--text-primary); }
+
+        /* --- TYPOGRAPHIC HIERARCHY --- */
+        .section-header {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--border-dark);
+            padding-bottom: 1rem;
+            margin: 6rem 0 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .section-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-meta);
+            font-weight: 600;
+        }
+
+        /* --- NAVIGATION --- */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: background-color var(--transition);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .nav-brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-navy); }
+        
+        /* Mobile Menu */
+        .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 8rem 0 4rem; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; }
+        .hero-content .kicker { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1.5rem; display: block; font-weight: 600; }
+        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 2rem; letter-spacing: -0.02em; }
+        .hero-content p { font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; font-weight: 300; }
+        .hero-image-wrapper { width: 100%; aspect-ratio: 3/4; background-color: var(--border-light); position: relative; }
+        .hero-image-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); color: var(--text-meta); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid var(--border-light); }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); display: none; /* Blocked until image is added */ }
+
+        /* --- BUTTONS & ASSETS --- */
+        .asset-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            border: 1px solid var(--border-dark);
+            background: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn:hover:not(:disabled) { background: var(--text-primary); color: var(--bg-surface); }
+        .btn:disabled { border-color: var(--border-light); color: var(--text-meta); cursor: not-allowed; opacity: 0.7; }
+        .btn-primary { background: var(--brand-navy); color: var(--bg-surface); border-color: var(--brand-navy); }
+        .btn-primary:hover:not(:disabled) { background: var(--text-primary); border-color: var(--text-primary); }
+
+        /* --- RESEARCH & MODELS GRID --- */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .publication-card {
+            background: var(--bg-surface);
+            padding: 2.5rem;
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--brand-navy);
+            transition: transform var(--transition), box-shadow var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .publication-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.04); }
+        .pub-meta { display: flex; justify-content: space-between; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); margin-bottom: 1.5rem; }
+        .pub-meta .tag { color: var(--brand-navy); font-weight: 600; }
+        .publication-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .publication-card p { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; }
+
+        /* --- STRATEGIC INITIATIVES (TABLE FORMAT) --- */
+        .initiatives-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .initiatives-table th, .initiatives-table td { padding: 1.5rem 1rem; text-align: left; border-bottom: 1px solid var(--border-light); }
+        .initiatives-table th { font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); border-bottom: 2px solid var(--border-dark); }
+        .initiatives-table td.title { font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-primary); width: 40%; }
+        .initiatives-table td.impact { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* --- TRACK RECORD / RESUME --- */
+        .timeline { border-left: 1px solid var(--border-dark); margin-left: 1rem; padding-left: 2rem; }
+        .timeline-item { position: relative; padding-bottom: 3rem; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 11px; height: 11px; background: var(--bg-paper); border: 2px solid var(--border-dark); border-radius: 50%; }
+        .timeline-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+        .timeline-role { font-family: var(--font-serif); font-size: 1.5rem; }
+        .timeline-date { font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); }
+        .timeline-company { font-weight: 600; color: var(--brand-navy); margin-bottom: 1rem; font-size: 1.1rem; }
+        .timeline-desc { color: var(--text-secondary); font-size: 1rem; max-width: 800px; }
+
+        /* --- FOOTER --- */
+        .site-footer { background-color: var(--brand-navy); color: var(--bg-surface); padding: 5rem 0 3rem; margin-top: 8rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 3rem; margin-bottom: 2rem; }
+        .footer-brand h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .footer-brand p { color: rgba(255,255,255,0.7); font-size: 0.95rem; max-width: 400px; }
+        .footer-contact h4 { font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; color: rgba(255,255,255,0.5); }
+        .footer-links { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-links a { color: var(--bg-surface); text-decoration: none; font-size: 1.1rem; }
+        .footer-links a:hover { color: rgba(255,255,255,0.7); }
+        .footer-legal { font-size: 0.8rem; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .hero-content p { margin: 0 auto; }
+            .hero-image-wrapper { max-width: 400px; margin: 0 auto; aspect-ratio: 1/1; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .initiatives-table, .initiatives-table tbody, .initiatives-table tr, .initiatives-table th, .initiatives-table td { display: block; width: 100%; }
+            .initiatives-table thead { display: none; }
+            .initiatives-table td.title { font-size: 1.5rem; padding-bottom: 0.5rem; border-bottom: none; }
+            .initiatives-table td.impact { padding-top: 0; margin-bottom: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--bg-surface); flex-direction: column; padding: 2rem; text-align: center; border-bottom: 1px solid var(--border-light); }
+            .nav-links.mobile-active { display: flex; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="logo">Z. Huq</div>
-            <nav class="site-nav">
-                <a href="#competencies">Competencies</a>
-                <a href="#insights">Insights</a>
-                <a href="#track-record">Track Record</a>
+    <!-- STICKY NAVIGATION -->
+    <nav class="site-nav" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="nav-brand">Z. Huq</a>
+            <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+            <div class="nav-links">
+                <a href="#research">Research</a>
+                <a href="#models">Financial Models</a>
+                <a href="#initiatives">Strategy</a>
+                <a href="#resume">Track Record</a>
                 <a href="#contact">Contact</a>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero container reveal">
-            <p class="kicker">Corporate Strategy & Investment Research</p>
-            <h1 class="hero-title">Driving digital transformation and capital allocation in the TMT sector.</h1>
-            <p class="hero-subtitle">Delivering institutional-grade analysis at the intersection of corporate finance, telecommunications strategy, and complex valuation.</p>
-        </section>
-
-        <!-- Competencies -->
-        <section id="competencies" class="expertise container reveal">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="grid-3">
-                <div class="expertise-card">
-                    <h3>Corporate Finance & Valuation</h3>
-                    <p>Executing complex financial modeling, DCF valuations, and capital structure optimization for high-capex environments.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Telecom & Digital Strategy</h3>
-                    <p>Advising on market entry, infrastructure monetization, and digital transformation roadmaps within the global TMT ecosystem.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Investment Research</h3>
-                    <p>Synthesizing macro-driven thematic research, equity analysis, and M&A synergy modeling to support executive decision-making.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Insights -->
-        <section id="insights" class="research container reveal">
-            <h2 class="section-title">Featured Insights</h2>
-            <div class="articles-grid">
+        <!-- HERO SECTION -->
+        <section class="container hero reveal">
+            <div class="hero-content">
+                <span class="kicker">Corporate Strategy & Investment Research</span>
+                <h1>Driving digital transformation and capital allocation in the TMT sector.</h1>
+                <p>Delivering institutional-grade analysis at the intersection of corporate finance, telecommunications strategy, and complex valuation.</p>
                 
-                <article class="research-article">
-                    <div class="article-meta">
-                        <span class="category">Telecom Strategy</span>
-                        <span class="date">Q3 2026</span>
-                    </div>
-                    <h3 class="article-title"><a href="#">The Next Decade of Infrastructure: Monetizing 5G CapEx through Enterprise Digital Transformation</a></h3>
-                    <p class="article-excerpt">An analysis of return on invested capital (ROIC) across tier-one telecom operators, highlighting the pivot from consumer broadband to enterprise IoT and cloud synergies.</p>
-                </article>
-
-                <article class="research-article">
-                    <div class="article-meta">
-                        <span class="category">Valuation</span>
-                        <span class="date">Q1 2026</span>
-                    </div>
-                    <h3 class="article-title"><a href="#">Re-evaluating Cost of Capital in Emerging Market TMT Equities</a></h3>
-                    <p class="article-excerpt">A quantitative framework adjusting the risk-free rate and beta profiles for digital infrastructure assets operating in high-inflation, frontier macro environments.</p>
-                </article>
-
-                <article class="research-article">
-                    <div class="article-meta">
-                        <span class="category">Corporate Finance</span>
-                        <span class="date">Q4 2025</span>
-                    </div>
-                    <h3 class="article-title"><a href="#">M&A Synergy Realization: Why Post-Merger Integration Fails in Tech Acquisitions</a></h3>
-                    <p class="article-excerpt">A forensic review of recent tech megadeals, identifying structural flaws in pre-deal OPEX synergy models and cultural integration timelines.</p>
-                </article>
-
+                <div class="asset-actions" style="margin-top: 3rem;">
+                    <a href="#research" class="btn btn-primary">Read Publications</a>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image-placeholder">Profile Photograph (assets/images/)</div>
+                <!-- <img src="assets/images/profile-placeholder.jpg" alt="Zawadul Huq" class="hero-image"> -->
             </div>
         </section>
 
-        <!-- Track Record -->
-        <section id="track-record" class="experience container reveal">
-            <h2 class="section-title">Professional Track Record</h2>
+        <!-- RESEARCH PUBLICATIONS -->
+        <section id="research" class="container reveal">
+            <header class="section-header">
+                <h2>Research Publications</h2>
+                <span class="section-kicker">Industry Notes</span>
+            </header>
+            
+            <div class="grid-2">
+                <article class="publication-card">
+                    <div class="pub-meta">
+                        <span class="tag">Telecom Strategy</span>
+                        <span>Q3 2026</span>
+                    </div>
+                    <h3>The Next Decade of Infrastructure: Monetizing 5G CapEx through Enterprise Digital Transformation</h3>
+                    <p>An analysis of return on invested capital (ROIC) across tier-one telecom operators, highlighting the necessary pivot from consumer broadband dependencies to enterprise IoT and cloud synergies.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>PDF Report (Coming Soon)</button>
+                        <button class="btn" disabled>View Presentation</button>
+                    </div>
+                </article>
+
+                <article class="publication-card">
+                    <div class="pub-meta">
+                        <span class="tag">Corporate Finance</span>
+                        <span>Q1 2026</span>
+                    </div>
+                    <h3>M&A Synergy Realization: Why Post-Merger Integration Fails in Tech Acquisitions</h3>
+                    <p>A forensic review of recent technology megadeals, identifying structural flaws in pre-deal OPEX synergy models and cultural integration timelines that erode shareholder value.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>PDF Report (Coming Soon)</button>
+                        <button class="btn" disabled>View Presentation</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FINANCIAL MODELS -->
+        <section id="models" class="container reveal">
+            <header class="section-header">
+                <h2>Financial Models</h2>
+                <span class="section-kicker">Valuation & Structuring</span>
+            </header>
+
+            <div class="grid-2">
+                <article class="publication-card" style="border-top-color: var(--border-dark);">
+                    <div class="pub-meta">
+                        <span class="tag" style="color: var(--text-primary);">DCF & LBO</span>
+                        <span>Active Model</span>
+                    </div>
+                    <h3>Re-evaluating Cost of Capital in Emerging Market TMT Equities</h3>
+                    <p>A comprehensive 3-statement model and quantitative framework adjusting the risk-free rate and beta profiles for digital infrastructure assets operating in high-inflation, frontier macro environments.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>Download Excel Model (Coming Soon)</button>
+                    </div>
+                </article>
+
+                <article class="publication-card" style="border-top-color: var(--border-dark);">
+                    <div class="pub-meta">
+                        <span class="tag" style="color: var(--text-primary);">CapEx Forecasting</span>
+                        <span>Active Model</span>
+                    </div>
+                    <h3>Network Infrastructure Carve-out & Synergy Tracker</h3>
+                    <p>Financial structuring model used to evaluate the spin-off of passive tower infrastructure, optimizing capital allocation and uncovering trapped shareholder value.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>Download Excel Model (Coming Soon)</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- STRATEGIC INITIATIVES -->
+        <section id="initiatives" class="container reveal">
+            <header class="section-header">
+                <h2>Strategic Initiatives</h2>
+                <span class="section-kicker">Executive Impact</span>
+            </header>
+
+            <table class="initiatives-table">
+                <thead>
+                    <tr>
+                        <th>Initiative & Scope</th>
+                        <th>Strategic Impact & Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="title">Enterprise Digital Transformation Roadmap</td>
+                        <td class="impact">Spearheaded the multi-year B2B digital pivot for a regional telecom. Designed go-to-market strategies for IoT and Cloud services, expanding the addressable enterprise market by 24%.</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Capital Allocation Framework Redesign</td>
+                        <td class="impact">Overhauled internal OPEX/CAPEX approval matrices. Introduced strict hurdle rates based on adjusted WACC, improving capital efficiency and prioritizing high-yield digital infrastructure projects.</td>
+                    </tr>
+                    <tr>
+                        <td class="title">Market Entry & Competitor Wargaming</td>
+                        <td class="impact">Led cross-functional teams to model aggressive pricing scenarios from market entrants. Developed defensive strategies that preserved 90% of targeted high-ARPU subscriber segments.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TRACK RECORD / RESUME -->
+        <section id="resume" class="container reveal">
+            <header class="section-header">
+                <h2>Professional Track Record</h2>
+                <span class="section-kicker">Experience</span>
+            </header>
+
             <div class="timeline">
-                
                 <div class="timeline-item">
                     <div class="timeline-meta">
-                        <p class="company">TMT Strategy Partners</p>
-                        <p class="timeframe">2024 &mdash; Present</p>
+                        <h3 class="timeline-role">Corporate Strategy Associate</h3>
+                        <span class="timeline-date">2024 &mdash; Present</span>
                     </div>
-                    <div class="timeline-content">
-                        <h3 class="role">Associate, Corporate Strategy</h3>
-                        <p>Spearheaded digital transformation roadmaps for a $5B+ regional telecom operator. Modeled network infrastructure carve-outs, optimizing capital allocation and unlocking $400M in trapped shareholder value.</p>
-                    </div>
+                    <p class="timeline-company">TMT Strategy Partners</p>
+                    <p class="timeline-desc">Advising executive leadership on capital structure, digital transformation, and M&A integration within the telecommunications sector. Formulating board-level presentations and driving enterprise-wide strategic pivots.</p>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-meta">
-                        <p class="company">Global Capital Markets</p>
-                        <p class="timeframe">2021 &mdash; 2024</p>
+                        <h3 class="timeline-role">Investment Research Analyst</h3>
+                        <span class="timeline-date">2021 &mdash; 2024</span>
                     </div>
-                    <div class="timeline-content">
-                        <h3 class="role">Investment Research Analyst</h3>
-                        <p>Authored thematic equity research on the emerging market telecommunications sector. Built and maintained 3-statement models, DCFs, and LBO scenarios to inform institutional buy-side mandates.</p>
-                    </div>
+                    <p class="timeline-company">Global Capital Markets</p>
+                    <p class="timeline-desc">Authored thematic equity research focusing on emerging market TMT equities. Built dynamic 3-statement models, DCFs, and scenario analyses to guide institutional buy-side mandates and private equity structuring.</p>
                 </div>
-
+            </div>
+            
+            <div class="asset-actions" style="margin-top: 3rem; margin-left: 1rem;">
+                <button class="btn btn-primary" disabled>Download Executive CV (Coming Soon)</button>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER & CONTACT -->
     <footer id="contact" class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-info">
-                <h2>S M Zawadul Huq</h2>
-                <p>Corporate Strategy & Investment Research</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Zawadul Huq</h2>
+                    <p>Corporate Strategy & Investment Research professional specializing in Telecommunications, Digital Transformation, and Corporate Finance.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Direct Inquiries</h4>
+                    <div class="footer-links">
+                        <a href="mailto:contact@example.com">Email Me</a>
+                        <a href="https://linkedin.com/in/" target="_blank" rel="noopener">LinkedIn Profile</a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="mailto:zawadul.huq@example.com">Email</a>
-                <a href="https://www.linkedin.com/in/zawadulhuq/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="#">Download Executive CV</a>
+            <div class="footer-legal">
+                <span>&copy; 2026 Zawadul Huq. All rights reserved.</span>
+                <span>Dhaka, Bangladesh</span>
             </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Zawadul Huq. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- INTERACTIVITY & PERFORMANCE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Mobile Menu Toggle
+            const toggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            toggle.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-active');
+            });
+
+            // 2. Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('mobile-active');
+                });
+            });
+
+            // 3. Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Account for sticky header offset
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 4. Reveal Animations (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+
+            // 5. Active Navigation Highlighting
+            const sections = document.querySelectorAll("section[id]");
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Adjust for sticky header
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                document.querySelectorAll(".nav-links a").forEach(li => {
+                    li.classList.remove("active");
+                    if (li.getAttribute("href") === "#" + current) {
+                        li.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
