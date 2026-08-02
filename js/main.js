@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Smooth scrolling for internal anchor links
+    // 1. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -16,22 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. Intersection Observer for subtle scroll reveals
-    // This provides the "expensive" editorial feel without being flashy.
+    // 2. Subtle Intersection Observer for reveals
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOptions = {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0.1, 
+        rootMargin: "0px 0px -40px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Unobserve once revealed to maintain state
                 observer.unobserve(entry.target);
             }
         });
