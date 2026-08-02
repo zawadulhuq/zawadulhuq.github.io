@@ -1,26 +1,26 @@
+/* CSS Variables mapped to an institutional, publication-first aesthetic */
 :root {
-    /* Color Palette: Institutional, refined, high-contrast */
-    --bg-color: #FAFAFA;
+    --bg-color: #FAFAFA;          /* Stark, Morningstar-like off-white */
     --surface-color: #FFFFFF;
-    --text-primary: #111111;
-    --text-secondary: #555555;
-    --text-tertiary: #888888;
-    --institutional-navy: #0A1F44;
-    --border-color: #E0E0E0;
+    --text-primary: #1A1A1A;      /* Deep grey/black for high legibility */
+    --text-secondary: #5C5C5C;
+    --text-tertiary: #8C8C8C;
+    --institutional-navy: #0F2040; /* McKinsey/Goldman inspired deep navy */
+    --border-color: #D9D9D9;      /* Editorial dividing lines */
 
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     
     /* Spacing & Layout */
-    --container-width: 1000px;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
+    --container-width: 1040px;
+    --spacing-sm: 1.25rem;
+    --spacing-md: 2.5rem;
+    --spacing-lg: 5rem;
     --spacing-xl: 8rem;
 }
 
-/* Reset & Base Styles */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +31,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
@@ -39,7 +39,7 @@ body {
 a {
     color: var(--institutional-navy);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease-in-out;
 }
 
 a:hover {
@@ -49,10 +49,10 @@ a:hover {
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-sm);
 }
 
-/* Typography specifics */
+/* Typography Hierarchy */
 h1, h2, h3 {
     font-family: var(--font-serif);
     font-weight: 400;
@@ -62,18 +62,18 @@ h1, h2, h3 {
 
 .kicker {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--text-secondary);
     font-weight: 600;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 1.5rem;
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     border-bottom: 2px solid var(--text-primary);
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: 1rem;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -90,61 +90,68 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 85px;
 }
 
 .logo {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .site-nav a {
-    font-size: 0.875rem;
-    margin-left: var(--spacing-md);
+    font-size: 0.85rem;
+    margin-left: 2rem;
     color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     font-weight: 500;
 }
 
 .site-nav a:hover {
-    color: var(--text-primary);
+    color: var(--institutional-navy);
 }
 
 /* Hero Section */
 .hero {
-    padding: var(--spacing-xl) var(--spacing-md);
-    max-width: 800px;
+    padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
+    max-width: 860px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.03em;
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
     font-weight: 300;
+    max-width: 700px;
 }
 
-/* Core Competencies Grid */
+/* Core Competencies */
 .expertise {
     padding-bottom: var(--spacing-lg);
 }
 
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.expertise-card {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
 }
 
 .expertise-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
 }
 
 .expertise-card p {
@@ -152,31 +159,38 @@ h1, h2, h3 {
     font-size: 0.95rem;
 }
 
-/* Research / Publications - HBR Style */
+/* Insights / Publications */
 .research {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-sm);
+    background-color: var(--surface-color);
 }
 
 .articles-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
 }
 
 .research-article {
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: var(--spacing-md);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.research-article:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .article-meta {
     display: flex;
     justify-content: space-between;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--text-tertiary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .category {
@@ -185,18 +199,19 @@ h1, h2, h3 {
 }
 
 .article-title {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .article-excerpt {
     color: var(--text-secondary);
     max-width: 800px;
+    font-size: 1.05rem;
 }
 
-/* Experience Timeline */
+/* Track Record */
 .experience {
-    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-xl);
 }
 
 .timeline {
@@ -205,42 +220,48 @@ h1, h2, h3 {
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 240px 1fr;
+    gap: var(--spacing-md);
     padding-left: var(--spacing-md);
     padding-bottom: var(--spacing-lg);
     position: relative;
 }
 
-/* The timeline dot */
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -4.5px;
+    left: -4px;
     top: 6px;
-    width: 8px;
-    height: 8px;
-    background-color: var(--text-primary);
-    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: var(--institutional-navy);
 }
 
 .company {
+    font-family: var(--font-sans);
     font-weight: 600;
+    font-size: 1.1rem;
     color: var(--text-primary);
 }
 
 .timeframe {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-tertiary);
+    margin-top: 0.25rem;
 }
 
 .role {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
 }
 
 .timeline-content p {
     color: var(--text-secondary);
+    font-size: 1.05rem;
 }
 
 /* Footer */
@@ -254,48 +275,54 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     padding-bottom: var(--spacing-md);
     margin-bottom: var(--spacing-md);
 }
 
 .footer-info h2 {
     color: #FFFFFF;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
 }
 
 .footer-info p {
     color: rgba(255,255,255,0.7);
-    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .footer-links {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 2rem;
 }
 
 .footer-links a {
     color: #FFFFFF;
-    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .footer-links a:hover {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.6);
 }
 
 .footer-bottom {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.5);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
 }
 
-/* Minimal Reveal Animation Classes */
+/* Scroll Reveals */
 .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(15px);
+    transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .reveal.active {
@@ -303,26 +330,38 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 800px) {
     .header-inner {
         flex-direction: column;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
+        height: auto;
+        padding: 1.5rem 0;
+    }
+    
+    .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .site-nav a {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin: 0.5rem 1rem;
     }
     
     .timeline-item {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 1rem;
     }
     
     .footer-inner {
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
