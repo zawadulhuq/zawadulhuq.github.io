@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zawadul Huq | Corporate Strategy & Investment Research</title>
-    <meta name="description" content="Zawadul Huq: Corporate Strategy, Financial Modeling, and TMT Industry Insights.">
-    
+    <meta name="description" content="Zawadul Huq — independent strategic research in corporate strategy, corporate finance, and investment research, with a focus on telecommunications and digital financial services.">
+
     <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* --- VISUAL IDENTITY SYSTEM --- */
         :root {
@@ -126,8 +129,13 @@
         .btn-primary { background: var(--brand-navy); color: var(--bg-surface); border-color: var(--brand-navy); }
         .btn-primary:hover:not(:disabled) { background: var(--text-primary); border-color: var(--text-primary); }
 
-        /* --- RESEARCH & MODELS GRID --- */
+        /* --- ABOUT --- */
+        .about-lede { font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; line-height: 1.5; color: var(--text-primary); max-width: 820px; margin-bottom: 1.5rem; }
+        .about-body { font-size: 1.05rem; color: var(--text-secondary); max-width: 820px; }
+
+        /* --- CARD GRIDS --- */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .publication-card {
             background: var(--bg-surface);
             padding: 2.5rem;
@@ -144,23 +152,51 @@
         .publication-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         .publication-card p { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; }
 
-        /* --- STRATEGIC INITIATIVES (TABLE FORMAT) --- */
-        .initiatives-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
-        .initiatives-table th, .initiatives-table td { padding: 1.5rem 1rem; text-align: left; border-bottom: 1px solid var(--border-light); }
-        .initiatives-table th { font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); border-bottom: 2px solid var(--border-dark); }
-        .initiatives-table td.title { font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-primary); width: 40%; }
-        .initiatives-table td.impact { color: var(--text-secondary); font-size: 0.95rem; }
+        /* --- COMPETENCY CARDS --- */
+        .competency-card {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        .competency-icon { font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 1.25rem; }
+        .competency-card h3 { font-size: 1.15rem; margin-bottom: 0.75rem; font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.01em; }
+        .competency-card p { color: var(--text-secondary); font-size: 0.9rem; }
 
-        /* --- TRACK RECORD / RESUME --- */
+        /* --- TRACK RECORD / TIMELINE (used for Experience & Education) --- */
         .timeline { border-left: 1px solid var(--border-dark); margin-left: 1rem; padding-left: 2rem; }
         .timeline-item { position: relative; padding-bottom: 3rem; }
         .timeline-item:last-child { padding-bottom: 0; }
         .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 11px; height: 11px; background: var(--bg-paper); border: 2px solid var(--border-dark); border-radius: 50%; }
-        .timeline-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+        .timeline-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
         .timeline-role { font-family: var(--font-serif); font-size: 1.5rem; }
         .timeline-date { font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); }
         .timeline-company { font-weight: 600; color: var(--brand-navy); margin-bottom: 1rem; font-size: 1.1rem; }
         .timeline-desc { color: var(--text-secondary); font-size: 1rem; max-width: 800px; }
+        .timeline-desc ul { margin-top: 0.75rem; padding-left: 1.2rem; }
+        .timeline-desc li { margin-bottom: 0.35rem; }
+
+        /* --- TOOLKIT --- */
+        .toolkit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .toolkit-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 1.75rem 1rem;
+            text-align: center;
+        }
+        .toolkit-item i { font-size: 1.5rem; color: var(--brand-navy); margin-bottom: 0.85rem; display: block; }
+        .toolkit-item span { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.01em; }
+
+        /* --- CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .contact-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .contact-card i { font-size: 1.35rem; color: var(--brand-navy); margin-bottom: 1rem; display: block; }
+        .contact-card span { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-meta); margin-bottom: 0.5rem; }
+        .contact-card a, .contact-card .btn { font-size: 0.9rem; }
 
         /* --- FOOTER --- */
         .site-footer { background-color: var(--brand-navy); color: var(--bg-surface); padding: 5rem 0 3rem; margin-top: 8rem; }
@@ -171,212 +207,358 @@
         .footer-links { display: flex; flex-direction: column; gap: 1rem; }
         .footer-links a { color: var(--bg-surface); text-decoration: none; font-size: 1.1rem; }
         .footer-links a:hover { color: rgba(255,255,255,0.7); }
-        .footer-legal { font-size: 0.8rem; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; }
+        .footer-legal { font-size: 0.8rem; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
 
         /* --- ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* --- ACCESSIBILITY --- */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--brand-navy);
+            outline-offset: 2px;
+        }
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--brand-navy);
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            z-index: 2000;
+            font-size: 0.85rem;
+        }
+        .skip-link:focus { left: 1rem; top: 1rem; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
             .hero-content p { margin: 0 auto; }
             .hero-image-wrapper { max-width: 400px; margin: 0 auto; aspect-ratio: 1/1; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .initiatives-table, .initiatives-table tbody, .initiatives-table tr, .initiatives-table th, .initiatives-table td { display: block; width: 100%; }
-            .initiatives-table thead { display: none; }
-            .initiatives-table td.title { font-size: 1.5rem; padding-bottom: 0.5rem; border-bottom: none; }
-            .initiatives-table td.impact { padding-top: 0; margin-bottom: 1rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .toolkit-grid, .contact-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-lede, .about-body { margin-left: auto; margin-right: auto; text-align: center; }
             .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
             .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--bg-surface); flex-direction: column; padding: 2rem; text-align: center; border-bottom: 1px solid var(--border-light); }
             .nav-links.mobile-active { display: flex; }
             .mobile-toggle { display: block; }
         }
+        @media (max-width: 600px) {
+            .toolkit-grid, .contact-grid { grid-template-columns: repeat(1, 1fr); }
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- STICKY NAVIGATION -->
-    <nav class="site-nav" id="navbar">
+    <nav class="site-nav" id="navbar" aria-label="Primary">
         <div class="container nav-inner">
             <a href="#" class="nav-brand">Z. Huq</a>
-            <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+            <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
             <div class="nav-links">
-                <a href="#research">Research</a>
-                <a href="#models">Financial Models</a>
-                <a href="#initiatives">Strategy</a>
-                <a href="#resume">Track Record</a>
+                <a href="#about">About</a>
+                <a href="#research-focus">Research Focus</a>
+                <a href="#strategic-research">Strategic Research</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#toolkit">Toolkit</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <!-- HERO SECTION -->
-        <section class="container hero reveal">
+        <section class="container hero reveal" aria-label="Introduction">
             <div class="hero-content">
-                <span class="kicker">Corporate Strategy & Investment Research</span>
-                <h1>Driving digital transformation and capital allocation in the TMT sector.</h1>
-                <p>Delivering institutional-grade analysis at the intersection of corporate finance, telecommunications strategy, and complex valuation.</p>
-                
-                <div class="asset-actions" style="margin-top: 3rem;">
-                    <a href="#research" class="btn btn-primary">Read Publications</a>
-                    <a href="#contact" class="btn">Get in Touch</a>
+                <span class="kicker">Corporate Strategy &bull; Corporate Finance &bull; Investment Research</span>
+                <h1>Zawadul Huq</h1>
+                <p>Independent strategic research focused on telecommunications, digital financial services, valuation, equity research, and technology-driven business transformation.</p>
+
+                <div class="asset-actions">
+                    <a href="#strategic-research" class="btn btn-primary">Explore Research</a>
+                    <button class="btn" disabled>Download Resume (Coming Soon)</button>
                 </div>
             </div>
             <div class="hero-image-wrapper">
                 <div class="hero-image-placeholder">Profile Photograph (assets/images/)</div>
-                <img src="assets/images/profile-placeholder.jpg" alt="Zawadul Huq" class="hero-image">
+                <img src="assets/images/profile-placeholder.jpg" alt="Portrait of Zawadul Huq" class="hero-image">
             </div>
         </section>
 
-        <!-- RESEARCH PUBLICATIONS -->
-        <section id="research" class="container reveal">
+        <!-- ABOUT -->
+        <section id="about" class="container reveal" aria-labelledby="about-heading">
             <header class="section-header">
-                <h2>Research Publications</h2>
-                <span class="section-kicker">Industry Notes</span>
+                <h2 id="about-heading">About</h2>
+                <span class="section-kicker">Background</span>
             </header>
-            
+
+            <p class="about-lede">A finance graduate with internship experience across Human Resources and Finance at M.M. Ispahani Limited, working at the intersection of corporate strategy, valuation, telecommunications, digital ecosystems, and financial technology.</p>
+            <p class="about-body">This portfolio presents independent strategic analyses developed using publicly available information and structured analytical frameworks. The work demonstrates an approach to solving business problems through research, financial modelling, and executive-level communication.</p>
+        </section>
+
+        <!-- RESEARCH FOCUS -->
+        <section id="research-focus" class="container reveal" aria-labelledby="research-focus-heading">
+            <header class="section-header">
+                <h2 id="research-focus-heading">Research Focus</h2>
+                <span class="section-kicker">Areas of Competency</span>
+            </header>
+
+            <div class="grid-3">
+                <article class="competency-card">
+                    <i class="fa-solid fa-chess-knight competency-icon" aria-hidden="true"></i>
+                    <h3>Corporate Strategy</h3>
+                    <p>Market entry, competitive positioning, and long-term strategic planning for firms navigating structural industry shifts.</p>
+                </article>
+                <article class="competency-card">
+                    <i class="fa-solid fa-sack-dollar competency-icon" aria-hidden="true"></i>
+                    <h3>Corporate Finance</h3>
+                    <p>Capital structure, cost of capital, and capital allocation frameworks applied to real business decisions.</p>
+                </article>
+                <article class="competency-card">
+                    <i class="fa-solid fa-magnifying-glass-chart competency-icon" aria-hidden="true"></i>
+                    <h3>Equity Research</h3>
+                    <p>Institutional-style coverage combining financial statement analysis, valuation, and thesis-driven company outlooks.</p>
+                </article>
+                <article class="competency-card">
+                    <i class="fa-solid fa-tower-broadcast competency-icon" aria-hidden="true"></i>
+                    <h3>Telecommunications</h3>
+                    <p>Operator economics, spectrum and infrastructure strategy, and digital transformation across emerging telecom markets.</p>
+                </article>
+                <article class="competency-card">
+                    <i class="fa-solid fa-mobile-screen-button competency-icon" aria-hidden="true"></i>
+                    <h3>Digital Financial Services</h3>
+                    <p>Mobile financial services, payment ecosystems, and regulatory dynamics shaping fintech growth in frontier markets.</p>
+                </article>
+                <article class="competency-card">
+                    <i class="fa-solid fa-seedling competency-icon" aria-hidden="true"></i>
+                    <h3>Venture Strategy</h3>
+                    <p>Business model design, commercial feasibility, and financial planning for early-stage and internal growth ventures.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SELECTED STRATEGIC RESEARCH -->
+        <section id="strategic-research" class="container reveal" aria-labelledby="strategic-research-heading">
+            <header class="section-header">
+                <h2 id="strategic-research-heading">Selected Strategic Research</h2>
+                <span class="section-kicker">Independent Analysis</span>
+            </header>
+
             <div class="grid-2">
                 <article class="publication-card">
                     <div class="pub-meta">
-                        <span class="tag">Telecom Strategy</span>
-                        <span>Q3 2026</span>
+                        <span class="tag">Corporate Finance &bull; Valuation</span>
                     </div>
-                    <h3>The Next Decade of Infrastructure: Monetizing 5G CapEx through Enterprise Digital Transformation</h3>
-                    <p>An analysis of return on invested capital (ROIC) across tier-one telecom operators, highlighting the necessary pivot from consumer broadband dependencies to enterprise IoT and cloud synergies.</p>
+                    <h3>Banglalink IPO Valuation</h3>
+                    <p>Independent valuation examining the strategic and financial implications of a hypothetical Dhaka Stock Exchange listing, developed using publicly available information.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>PDF Report (Coming Soon)</button>
-                        <button class="btn" disabled>View Presentation</button>
+                        <button class="btn" disabled>Executive Report (Coming Soon)</button>
+                        <button class="btn" disabled>Board Deck (Coming Soon)</button>
+                        <button class="btn" disabled>Financial Model (Coming Soon)</button>
                     </div>
                 </article>
 
                 <article class="publication-card">
                     <div class="pub-meta">
-                        <span class="tag">Corporate Finance</span>
-                        <span>Q1 2026</span>
+                        <span class="tag">Equity Research</span>
                     </div>
-                    <h3>M&A Synergy Realization: Why Post-Merger Integration Fails in Tech Acquisitions</h3>
-                    <p>A forensic review of recent technology megadeals, identifying structural flaws in pre-deal OPEX synergy models and cultural integration timelines that erode shareholder value.</p>
+                    <h3>VEON Equity Research</h3>
+                    <p>Institutional-style equity research covering financial performance, business strategy, operating outlook, and valuation.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>PDF Report (Coming Soon)</button>
-                        <button class="btn" disabled>View Presentation</button>
+                        <button class="btn" disabled>Research Report (Coming Soon)</button>
+                        <button class="btn" disabled>Valuation Model (Coming Soon)</button>
+                        <button class="btn" disabled>Presentation (Coming Soon)</button>
+                    </div>
+                </article>
+
+                <article class="publication-card">
+                    <div class="pub-meta">
+                        <span class="tag">Digital Financial Services</span>
+                    </div>
+                    <h3>NEO PSP Strategic Growth Blueprint</h3>
+                    <p>Independent strategic roadmap assessing market opportunities, competitive positioning, financial framework, and implementation priorities for Banglalink's digital financial services initiative, using public information.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>Strategy Report (Coming Soon)</button>
+                        <button class="btn" disabled>Board Deck (Coming Soon)</button>
+                        <button class="btn" disabled>Business Case Model (Coming Soon)</button>
+                    </div>
+                </article>
+
+                <article class="publication-card">
+                    <div class="pub-meta">
+                        <span class="tag">Venture Strategy</span>
+                    </div>
+                    <h3>Roar Regiment Business Strategy</h3>
+                    <p>Business model, venture strategy, commercial feasibility, financial framework, and long-term growth roadmap for a telecom-integrated esports organization.</p>
+                    <div class="asset-actions">
+                        <button class="btn" disabled>Business Plan (Coming Soon)</button>
+                        <button class="btn" disabled>Financial Model (Coming Soon)</button>
+                        <button class="btn" disabled>Pitch Deck (Coming Soon)</button>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- FINANCIAL MODELS -->
-        <section id="models" class="container reveal">
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <section id="experience" class="container reveal" aria-labelledby="experience-heading">
             <header class="section-header">
-                <h2>Financial Models</h2>
-                <span class="section-kicker">Valuation & Structuring</span>
-            </header>
-
-            <div class="grid-2">
-                <article class="publication-card" style="border-top-color: var(--border-dark);">
-                    <div class="pub-meta">
-                        <span class="tag" style="color: var(--text-primary);">DCF & LBO</span>
-                        <span>Active Model</span>
-                    </div>
-                    <h3>Re-evaluating Cost of Capital in Emerging Market TMT Equities</h3>
-                    <p>A comprehensive 3-statement model and quantitative framework adjusting the risk-free rate and beta profiles for digital infrastructure assets operating in high-inflation, frontier macro environments.</p>
-                    <div class="asset-actions">
-                        <button class="btn" disabled>Download Excel Model (Coming Soon)</button>
-                    </div>
-                </article>
-
-                <article class="publication-card" style="border-top-color: var(--border-dark);">
-                    <div class="pub-meta">
-                        <span class="tag" style="color: var(--text-primary);">CapEx Forecasting</span>
-                        <span>Active Model</span>
-                    </div>
-                    <h3>Network Infrastructure Carve-out & Synergy Tracker</h3>
-                    <p>Financial structuring model used to evaluate the spin-off of passive tower infrastructure, optimizing capital allocation and uncovering trapped shareholder value.</p>
-                    <div class="asset-actions">
-                        <button class="btn" disabled>Download Excel Model (Coming Soon)</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- STRATEGIC INITIATIVES -->
-        <section id="initiatives" class="container reveal">
-            <header class="section-header">
-                <h2>Strategic Initiatives</h2>
-                <span class="section-kicker">Executive Impact</span>
-            </header>
-
-            <table class="initiatives-table">
-                <thead>
-                    <tr>
-                        <th>Initiative & Scope</th>
-                        <th>Strategic Impact & Deliverables</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="title">Enterprise Digital Transformation Roadmap</td>
-                        <td class="impact">Spearheaded the multi-year B2B digital pivot for a regional telecom. Designed go-to-market strategies for IoT and Cloud services, expanding the addressable enterprise market by 24%.</td>
-                    </tr>
-                    <tr>
-                        <td class="title">Capital Allocation Framework Redesign</td>
-                        <td class="impact">Overhauled internal OPEX/CAPEX approval matrices. Introduced strict hurdle rates based on adjusted WACC, improving capital efficiency and prioritizing high-yield digital infrastructure projects.</td>
-                    </tr>
-                    <tr>
-                        <td class="title">Market Entry & Competitor Wargaming</td>
-                        <td class="impact">Led cross-functional teams to model aggressive pricing scenarios from market entrants. Developed defensive strategies that preserved 90% of targeted high-ARPU subscriber segments.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- TRACK RECORD / RESUME -->
-        <section id="resume" class="container reveal">
-            <header class="section-header">
-                <h2>Professional Track Record</h2>
-                <span class="section-kicker">Experience</span>
+                <h2 id="experience-heading">Professional Experience</h2>
+                <span class="section-kicker">Internships</span>
             </header>
 
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-meta">
-                        <h3 class="timeline-role">Corporate Strategy Associate</h3>
-                        <span class="timeline-date">2024 &mdash; Present</span>
+                        <h3 class="timeline-role">HR Intern</h3>
                     </div>
-                    <p class="timeline-company">TMT Strategy Partners</p>
-                    <p class="timeline-desc">Advising executive leadership on capital structure, digital transformation, and M&A integration within the telecommunications sector. Formulating board-level presentations and driving enterprise-wide strategic pivots.</p>
+                    <p class="timeline-company">M.M. Ispahani Limited</p>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>University of Dhaka job fair representation</li>
+                            <li>Recruitment support</li>
+                            <li>Internal training materials</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-meta">
-                        <h3 class="timeline-role">Investment Research Analyst</h3>
-                        <span class="timeline-date">2021 &mdash; 2024</span>
+                        <h3 class="timeline-role">Finance &amp; Accounts Intern</h3>
                     </div>
-                    <p class="timeline-company">Global Capital Markets</p>
-                    <p class="timeline-desc">Authored thematic equity research focusing on emerging market TMT equities. Built dynamic 3-statement models, DCFs, and scenario analyses to guide institutional buy-side mandates and private equity structuring.</p>
+                    <p class="timeline-company">Ispahani Agro Limited</p>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Internal audit support</li>
+                            <li>Bank reconciliation</li>
+                            <li>Vendor payments</li>
+                            <li>Financial documentation</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
-            <div class="asset-actions" style="margin-top: 3rem; margin-left: 1rem;">
-                <button class="btn btn-primary" disabled>Download Executive CV (Coming Soon)</button>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="container reveal" aria-labelledby="education-heading">
+            <header class="section-header">
+                <h2 id="education-heading">Education</h2>
+                <span class="section-kicker">Academic Background</span>
+            </header>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <h3 class="timeline-role">Bachelor of Technology Management</h3>
+                    </div>
+                    <p class="timeline-company">Islamic University of Technology (IUT&ndash;OIC)</p>
+                    <p class="timeline-desc">Department of Business and Technology Management &mdash; Minor in Finance.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-meta">
+                        <h3 class="timeline-role">Executive MBA, Finance</h3>
+                    </div>
+                    <p class="timeline-company">University of Dhaka</p>
+                    <p class="timeline-desc">Faculty of Business Studies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL TOOLKIT -->
+        <section id="toolkit" class="container reveal" aria-labelledby="toolkit-heading">
+            <header class="section-header">
+                <h2 id="toolkit-heading">Technical Toolkit</h2>
+                <span class="section-kicker">Tools &amp; Platforms</span>
+            </header>
+
+            <div class="toolkit-grid">
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+                    <span>Advanced Excel</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                    <span>Power BI</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-brands fa-python" aria-hidden="true"></i>
+                    <span>Python</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-database" aria-hidden="true"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <span>Tableau</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    <span>Financial Modelling</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>
+                    <span>PowerPoint</span>
+                </div>
+                <div class="toolkit-item">
+                    <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+                    <span>Notion</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="container reveal" aria-labelledby="contact-heading">
+            <header class="section-header">
+                <h2 id="contact-heading">Contact</h2>
+                <span class="section-kicker">Get in Touch</span>
+            </header>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <span>Email</span>
+                    <a href="mailto:smzawadulhuq@gmail.com">smzawadulhuq@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    <span>LinkedIn</span>
+                    <a href="https://linkedin.com/in/zawadulhuq" target="_blank" rel="noopener">/in/zawadulhuq</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                    <a href="https://github.com/zawadulhuq" target="_blank" rel="noopener">/zawadulhuq</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                    <span>Resume</span>
+                    <button class="btn" disabled>Download (Coming Soon)</button>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- FOOTER & CONTACT -->
-    <footer id="contact" class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h2>Zawadul Huq</h2>
-                    <p>Corporate Strategy & Investment Research professional specializing in Telecommunications, Digital Transformation, and Corporate Finance.</p>
+                    <p>Independent Strategic Research &mdash; Corporate Strategy, Corporate Finance, and Investment Research.</p>
                 </div>
                 <div class="footer-contact">
                     <h4>Direct Inquiries</h4>
                     <div class="footer-links">
-                        <a href="mailto:contact@example.com">Email Me</a>
-                        <a href="https://linkedin.com/in/" target="_blank" rel="noopener">LinkedIn Profile</a>
+                        <a href="mailto:smzawadulhuq@gmail.com">Email Me</a>
+                        <a href="https://linkedin.com/in/zawadulhuq" target="_blank" rel="noopener">LinkedIn Profile</a>
+                        <a href="https://github.com/zawadulhuq" target="_blank" rel="noopener">GitHub Profile</a>
                     </div>
                 </div>
             </div>
@@ -395,13 +577,15 @@
             const navLinks = document.querySelector('.nav-links');
             
             toggle.addEventListener('click', () => {
-                navLinks.classList.toggle('mobile-active');
+                const isActive = navLinks.classList.toggle('mobile-active');
+                toggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
             });
 
             // 2. Close mobile menu on link click
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('mobile-active');
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
             });
 
@@ -453,8 +637,6 @@
                 let current = "";
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    // Adjust for sticky header
                     if (scrollY >= (sectionTop - 150)) {
                         current = section.getAttribute("id");
                     }
