@@ -106,7 +106,7 @@
         .hero-content p { font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; font-weight: 300; }
         .hero-image-wrapper { width: 100%; aspect-ratio: 3/4; background-color: var(--border-light); position: relative; }
         .hero-image-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); color: var(--text-meta); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid var(--border-light); }
-        .hero-image { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); display: none; /* Blocked until image is added */ }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); display: block; }
 
         /* --- BUTTONS & ASSETS --- */
         .asset-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
@@ -150,7 +150,12 @@
         .pub-meta { display: flex; justify-content: space-between; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-meta); margin-bottom: 1.5rem; }
         .pub-meta .tag { color: var(--brand-navy); font-weight: 600; }
         .publication-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .publication-card p { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; }
+        .publication-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .pub-thesis { font-size: 0.95rem; color: var(--text-primary); border-left: 2px solid var(--brand-navy); padding-left: 1rem; margin: 1.25rem 0; }
+        .pub-thesis strong { font-weight: 600; }
+        .pub-status { margin-top: auto; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-top: 1px solid var(--border-light); }
+        .pub-status .status-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-meta); }
+        .section-lede { color: var(--text-secondary); font-size: 1rem; max-width: 720px; margin-top: -1.5rem; margin-bottom: 2.5rem; }
 
         /* --- COMPETENCY CARDS --- */
         .competency-card {
@@ -286,7 +291,6 @@
                 </div>
             </div>
             <div class="hero-image-wrapper">
-                <div class="hero-image-placeholder">Profile Photograph (assets/images/)</div>
                 <img src="assets/images/profile-placeholder.jpg" alt="Portrait of Zawadul Huq" class="hero-image">
             </div>
         </section>
@@ -358,9 +362,9 @@
                     <h3>Banglalink IPO Valuation</h3>
                     <p>Independent valuation examining the strategic and financial implications of a hypothetical Dhaka Stock Exchange listing, developed using publicly available information.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>Executive Report (Coming Soon)</button>
-                        <button class="btn" disabled>Board Deck (Coming Soon)</button>
-                        <button class="btn" disabled>Financial Model (Coming Soon)</button>
+                        <a class="btn btn-primary" href="assets/files/Banglalink_IPO_Advisory_Memorandum_1.docx" target="_blank" rel="noopener">Executive Report</a>
+                        <a class="btn btn-primary" href="assets/files/Banglalink_IPO_Board_Presentation.pptx" target="_blank" rel="noopener">Board Deck</a>
+                        <a class="btn" href="assets/files/Banglalink_IPO_Model.xlsx" target="_blank" rel="noopener">Financial Model</a>
                     </div>
                 </article>
 
@@ -371,9 +375,9 @@
                     <h3>VEON Equity Research</h3>
                     <p>Institutional-style equity research covering financial performance, business strategy, operating outlook, and valuation.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>Research Report (Coming Soon)</button>
-                        <button class="btn" disabled>Valuation Model (Coming Soon)</button>
-                        <button class="btn" disabled>Presentation (Coming Soon)</button>
+                        <a class="btn btn-primary" href="assets/files/VEON_Equity_Research_SM_Zawadul_Huq.docx" target="_blank" rel="noopener">Research Report</a>
+                        <a class="btn" href="assets/files/VEON_Valuation_Workbook.xlsx" target="_blank" rel="noopener">Valuation Model</a>
+                        <a class="btn btn-primary" href="assets/files/VEON_Investor_Presentation.pptx" target="_blank" rel="noopener">Presentation</a>
                     </div>
                 </article>
 
@@ -384,9 +388,10 @@
                     <h3>NEO PSP Strategic Growth Blueprint</h3>
                     <p>Independent strategic roadmap assessing market opportunities, competitive positioning, financial framework, and implementation priorities for Banglalink's digital financial services initiative, using public information.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>Strategy Report (Coming Soon)</button>
-                        <button class="btn" disabled>Board Deck (Coming Soon)</button>
-                        <button class="btn" disabled>Business Case Model (Coming Soon)</button>
+                        <a class="btn btn-primary" href="assets/files/NEO_PSP_Strategic_Growth_Blueprint.docx" target="_blank" rel="noopener">Strategy Report</a>
+                        <a class="btn btn-primary" href="assets/files/NEO_PSP_Board_Presentation.pptx" target="_blank" rel="noopener">Board Deck</a>
+                        <a class="btn" href="assets/files/NEO_PSP_Financial_Model_Framework.xlsx" target="_blank" rel="noopener">Financial Model</a>
+                        <a class="btn" href="assets/files/NEO_PSP_Phased_Implementation_Roadmap.docx" target="_blank" rel="noopener">Implementation Roadmap</a>
                     </div>
                 </article>
 
@@ -397,9 +402,9 @@
                     <h3>Roar Regiment Business Strategy</h3>
                     <p>Business model, venture strategy, commercial feasibility, financial framework, and long-term growth roadmap for a telecom-integrated esports organization.</p>
                     <div class="asset-actions">
-                        <button class="btn" disabled>Business Plan (Coming Soon)</button>
-                        <button class="btn" disabled>Financial Model (Coming Soon)</button>
-                        <button class="btn" disabled>Pitch Deck (Coming Soon)</button>
+                        <a class="btn btn-primary" href="assets/files/Roar_Regiment_Executive_Briefing.docx" target="_blank" rel="noopener">Business Plan</a>
+                        <a class="btn" href="assets/files/Roar_Regiment_Financial_Model_v2.xlsx" target="_blank" rel="noopener">Financial Model</a>
+                        <a class="btn btn-primary" href="assets/files/Roar_Regiment_Pitch_v2.pptx" target="_blank" rel="noopener">Pitch Deck</a>
                     </div>
                 </article>
             </div>
